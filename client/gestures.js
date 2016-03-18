@@ -1,11 +1,9 @@
 $(function() {
     /* Hammer */
-    var hammerContainer = document.getElementById('hammer-gesture'),
-        $hammerContainer = $(hammerContainer);
+    var $hammerContainer = $('#hammer-gesture');
 
-    var mc = new Hammer(hammerContainer);
-
-    mc.on("panleft panright tap press", function(ev) {
+    $hammerContainer.hammer({}).bind("panleft panright panup tap press",
+         function(ev) {
         var text = 'Hammer ' + ev.type + ' gesture detected. ';
         print(ev.target, text )
     });
